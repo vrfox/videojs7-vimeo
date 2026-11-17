@@ -2596,6 +2596,16 @@ var Vimeo = function (_Tech) {
     return this._vimeoState.ended;
   };
 
+  Vimeo.prototype.playbackRate = function playbackRate() {
+    return 1;
+  };
+
+  Vimeo.prototype.setPlaybackRate = function setPlaybackRate(rate) {
+    // Vimeo supports 0.5–2 via the Player API, but we can leave this as a no-op
+    // or wire it up later if you need it.
+    return this._player.setPlaybackRate(rate);
+  };
+
   // Vimeo does has a mute API and native controls aren't being used,
   // so setMuted doesn't really make sense and shouldn't be called.
   // setMuted(mute) {}
